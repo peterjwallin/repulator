@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
     this.state = {
         amount: "",
-        size: "300000000",
+        size: "200000000",
         fee: "2",
         active: "85",
         pe: "15.4"
@@ -78,7 +78,10 @@ class App extends Component {
         </div>
         <p/>
         <div>
+        {/*}
           <table className="Table">
+        */}
+        <table className="table table-condensed table-borderless">
             <tbody>
               <tr>
                 <td className="Column1">
@@ -86,7 +89,7 @@ class App extends Component {
                     <b>Number Of REPS You Own:</b>
                   </div>
                 </td>
-                <td className="Column2">
+                  <td className="Column2">
                   <div>
                     <input type="text" placeholder="# of REP Tokens You Own" maxLength={8} value={this.state.amount} onChange={this.handleChangeAmount} />
                   </div>
@@ -110,7 +113,7 @@ class App extends Component {
                     <b>Average Trading Fee (%):</b>
                   </div>
                 </td>
-                <td className="Column2">
+                  <td className="Column2">
                   <div>
                       <input type="text" placeholder="2" maxLength={3} value={this.state.fee} onChange={this.handleChangeFee} />
                   </div>
@@ -122,7 +125,7 @@ class App extends Component {
                     <b>% Of REPS That Are Active (%):</b>
                   </div>
                 </td>
-                <td className="Column2">
+                  <td className="Column2">
                   <div>
                     <input type="text" placeholder="85" maxLength={3} value={this.state.active} onChange={this.handleChangeActive} />
                   </div>
@@ -132,7 +135,7 @@ class App extends Component {
                 <td className="Column1">
                   <div>
                     <b>Price / Earnings Ratio:</b>
-                  </div>
+                    </div>
                 </td>
                 <td className="Column2">
                   <div>
@@ -141,8 +144,8 @@ class App extends Component {
                 </td>
               </tr>
               <tr>
-                <td className="Column1"><hr/></td>
-                <td className="Column2"><hr/></td>
+              <td className="Column1"><hr/></td>
+              <td className="Column2"><hr/></td>
               </tr>
               <tr>
                 <td className="Column1">
