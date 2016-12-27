@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import NumericLabel from 'react-pretty-numbers';
 
+
 class App extends Component {
 
   constructor(props) {
@@ -42,6 +43,8 @@ class App extends Component {
 
   render() {
 
+    var numeral = require('numeral');
+
     var currencyFormat = {
           'justification':'L',
           'locales':'en-US',
@@ -60,13 +63,13 @@ class App extends Component {
 
     const rep = {
       amount: this.state.amount,
-      size: this.state.size,
+      size: numeral(this.state.size).value(),
       fee: this.state.fee,
       active: this.state.active,
       pe: this.state.pe,
-      total_fees: ((this.state.size*(this.state.fee*0.01) / (11000000*(this.state.active*0.01)) * 0.5) * this.state.amount),
-      market_value: (((this.state.size*(this.state.fee*0.01) / (11000000*(this.state.active*0.01)) * 0.5) * this.state.pe) * this.state.amount),
-      rep_price: ((this.state.size*(this.state.fee*0.01) / (11000000*(this.state.active*0.01)) * 0.5) * this.state.pe)
+      total_fees: ((numeral(this.state.size).value()*(this.state.fee*0.01) / (11000000*(this.state.active*0.01)) * 0.5) * this.state.amount),
+      market_value: (((numeral(this.state.size).value()*(this.state.fee*0.01) / (11000000*(this.state.active*0.01)) * 0.5) * this.state.pe) * this.state.amount),
+      rep_price: ((numeral(this.state.size).value()*(this.state.fee*0.01) / (11000000*(this.state.active*0.01)) * 0.5) * this.state.pe)
     };
 
     return (
@@ -103,7 +106,7 @@ class App extends Component {
                 </td>
                 <td className="Column2">
                   <div>
-                    <input type="text" placeholder="Annual Trading Volume ($)" maxLength={15} value={this.state.size} onChange={this.handleChangeSize} />
+                      <input type="text" placeholder="Annual Trading Volume ($)" maxLength={15} value={numeral(this.state.size).format(0,0)} onChange={this.handleChangeSize} />
                   </div>
                 </td>
               </tr>
